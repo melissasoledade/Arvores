@@ -12,12 +12,14 @@ typedef struct Arvore{
 	No* raiz;
 }Arvore;
 
+//Cria árvore vazia
 Arvore * cria_arvore(){
 	Arvore *nova = (Arvore*)malloc(sizeof(Arvore));
 	nova->raiz = NULL;
 	return nova;
 }
 
+//Inserção de nó com valor inteiro
 void insere_no(No* pai, No * n){
 	if(pai != NULL){
 		if(n->valor < pai->valor){
@@ -56,6 +58,7 @@ void insere(Arvore* A, int v){
 	return;	
 }
 
+//Impressão: inordem, preordem, posordem
 void imprime_inordem(No* n){
 	if(n != NULL){
     imprime_inordem(n->esq);
@@ -95,6 +98,7 @@ void posordem(Arvore *A){
   return;
 }
 
+//Calcula a altura da árvore binária de busca
 int altura(No* n){
   int esq, dir;
 
@@ -114,6 +118,7 @@ int altura(No* n){
   }
 }
 
+//Busca um valor inteiro na árvore
 No* busca_valor(No *n, int k){
   if(n == NULL || n->valor == k){
     return n;
@@ -138,6 +143,7 @@ char * busca(Arvore *A, int k){
   }
 }
 
+//Remoção de um nó contendo um inteiro em questão
 No* retira_no(No *n, int k){
   if(n == NULL){
     return NULL;
